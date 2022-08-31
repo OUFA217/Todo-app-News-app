@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:projeectname/modules/design/Cubit/States.dart';
-import 'package:projeectname/modules/design/Cubit/cubit.dart';
+import 'package:projeectname/modules/Counter/Cubit/States.dart';
+import 'package:projeectname/modules/Counter/Cubit/cubit.dart';
 
 class Design_app extends StatelessWidget {
   @override

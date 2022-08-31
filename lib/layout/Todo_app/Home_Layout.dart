@@ -5,9 +5,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:projeectname/modules/ArcheivedTasks/ArchievedTasks.dart';
-import 'package:projeectname/modules/DoneTasks/DoneTasks.dart';
-import 'package:projeectname/modules/NewTasks/NewTasks.dart';
+
 import 'package:projeectname/shared/Cubit/cubit.dart';
 import 'package:projeectname/shared/Cubit/states.dart';
 import 'package:projeectname/shared/components/components.dart';

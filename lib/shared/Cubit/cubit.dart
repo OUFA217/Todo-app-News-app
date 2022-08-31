@@ -3,9 +3,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:projeectname/modules/ArcheivedTasks/ArchievedTasks.dart';
-import 'package:projeectname/modules/DoneTasks/DoneTasks.dart';
-import 'package:projeectname/modules/NewTasks/NewTasks.dart';
+import 'package:projeectname/modules/Todo%20App/ArcheivedTasks/ArchievedTasks.dart';
+import 'package:projeectname/modules/Todo%20App/DoneTasks/DoneTasks.dart';
+import 'package:projeectname/modules/Todo%20App/NewTasks/NewTasks.dart';
+
 import 'package:projeectname/shared/Cubit/states.dart';
 import 'package:projeectname/shared/network/local/Cache_helper.dart';
 import 'package:sqflite/sqflite.dart';

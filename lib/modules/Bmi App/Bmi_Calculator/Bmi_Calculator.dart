@@ -3,7 +3,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:projeectname/modules/Bmi_Result/BMI_Result_Screen.dart';
+import 'package:projeectname/modules/Bmi%20App/Bmi_Result/BMI_Result_Screen.dart';
 
 class Bmi_Calculator extends StatefulWidget {
   const Bmi_Calculator({Key? key}) : super(key: key);

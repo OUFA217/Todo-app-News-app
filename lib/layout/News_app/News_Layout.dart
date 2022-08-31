@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:projeectname/layout/News_app/cubit/cubit.dart';
 import 'package:projeectname/layout/News_app/cubit/states.dart';
-import 'package:projeectname/modules/Search/Search.dart';
+import 'package:projeectname/modules/News%20App/Search/Search.dart';
+
 import 'package:projeectname/shared/Cubit/cubit.dart';
 import 'package:projeectname/shared/components/components.dart';
 import 'package:projeectname/shared/network/remote/dio_helper.dart';

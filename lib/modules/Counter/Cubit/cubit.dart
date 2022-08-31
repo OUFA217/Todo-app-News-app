@@ -2,7 +2,8 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:projeectname/modules/design/Cubit/States.dart';
+import 'package:projeectname/modules/Counter/Cubit/States.dart';
+
 import 'package:projeectname/shared/network/remote/dio_helper.dart';
 
 class countercubit extends Cubit<counterstates> {

@@ -5,11 +5,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:projeectname/layout/News_app/cubit/states.dart';
-import 'package:projeectname/modules/Business/Business.dart';
+import 'package:projeectname/modules/News%20App/Business/Business.dart';
+import 'package:projeectname/modules/News%20App/Science/Science.dart';
+import 'package:projeectname/modules/News%20App/Sports/Sports.dart';
+
 import 'package:projeectname/modules/Profile/Profile.dart';
-import 'package:projeectname/modules/Science/Science.dart';
-import 'package:projeectname/modules/SettingsScreen/SettingsScreen.dart';
-import 'package:projeectname/modules/Sports/Sports.dart';
+
 import 'package:projeectname/shared/network/remote/dio_helper.dart';
 
 class newscubit extends Cubit<NewsStates> {

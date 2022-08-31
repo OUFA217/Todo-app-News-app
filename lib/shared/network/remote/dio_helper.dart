@@ -19,6 +19,16 @@ class DioHelper {
     );
   }
 
+  static Future<Response> createUser({
+    required url,
+    required Map<String, dynamic> query,
+  }) async {
+    return await dio!.post(
+      url,
+      queryParameters: query,
+    );
+  }
+
   static Future<Response> getdata({
     required url,
     required Map<String, dynamic> query,
