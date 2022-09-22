@@ -1,6 +1,7 @@
-// ignore_for_file: use_function_type_syntax_for_parameters, non_constant_identifier_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_is_empty, sized_box_for_whitespace
+// ignore_for_file: use_function_type_syntax_for_parameters, non_constant_identifier_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_is_empty, sized_box_for_whitespace, curly_braces_in_flow_control_structures, unnecessary_new
 
 import 'dart:io';
+import 'dart:math';
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -8,40 +9,54 @@ import 'package:projeectname/modules/Web_View/Web_View.dart';
 import 'package:projeectname/shared/Cubit/cubit.dart';
 
 Widget defultbutton({
-  double width = double.infinity,
-  Color background = Colors.blue,
+  double width = double.maxFinite,
   bool isUppercase = true,
-  double radius = 10.0,
+  double radius = 100.0,
   required VoidCallback function,
   required String text,
+  context,
+  token,
 }) =>
     Container(
       width: width,
       child: MaterialButton(
         onPressed: function,
         child: Text(
-          isUppercase ? text.toUpperCase() : text,
-          style: TextStyle(color: Colors.white),
+          isUppercase ? text : text,
+          style: TextStyle(
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            color: Colors.black,
+          ),
         ),
       ),
       decoration: BoxDecoration(
-        color: background,
+        gradient: LinearGradient(colors: [
+          Colors.white,
+          Colors.white,
+        ], begin: Alignment.centerLeft, end: Alignment.centerRight),
         borderRadius: BorderRadius.circular(radius),
       ),
     );
-Widget defultformfield({
-  required final FormFieldValidator<String> validator,
-  required TextEditingController controller,
-  required TextInputType type,
-  void Function(String)? onsubmit,
-  void Function(String)? changed,
-  VoidCallback? suffixpressed,
-  VoidCallback? onTap,
-  required String label,
-  bool isPassword = false,
-  required IconData prefix,
-  IconData? suffix,
-}) =>
+FocusNode myFocusNode = new FocusNode();
+Widget defultformfield(
+        {required final FormFieldValidator<String> validator,
+        required TextEditingController controller,
+        Color background = Colors.transparent,
+        required TextInputType type,
+        void Function(String)? onsubmit,
+        void Function(String)? changed,
+        VoidCallback? suffixpressed,
+        VoidCallback? onTap,
+        required String label,
+        BorderSide? bord,
+        bool isPassword = false,
+        required IconData prefix,
+        String email = 'email',
+        TextStyle? Texcolor,
+        IconData? suffix,
+        TextStyle? labelst}) =>
     TextFormField(
       validator: validator,
       controller: controller,
@@ -50,20 +65,147 @@ Widget defultformfield({
       onTap: onTap,
       onFieldSubmitted: onsubmit,
       keyboardType: type,
+      style: Texcolor,
       decoration: InputDecoration(
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderSide: BorderSide(color: Colors.white)),
+        fillColor: background,
+        labelStyle: labelst,
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+            borderRadius: BorderRadius.all(Radius.circular(12))),
         labelText: label,
-        prefixIcon: Icon(prefix),
+        prefixIcon: Icon(
+          prefix,
+          color: Colors.white,
+        ),
         suffixIcon: suffix != null
             ? IconButton(
                 onPressed: suffixpressed,
                 icon: Icon(
                   suffix,
+                  color: Colors.white,
                 ),
               )
             : null,
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderSide: BorderSide()),
       ),
     );
+Widget defultformfields(
+        {required final FormFieldValidator<String> validator,
+        required TextEditingController controller,
+        Color background = Colors.transparent,
+        required TextInputType type,
+        void Function(String)? onsubmit,
+        void Function(String)? changed,
+        VoidCallback? suffixpressed,
+        VoidCallback? onTap,
+        required String label,
+        BorderSide? bord,
+        bool isPassword = false,
+        required IconData prefix,
+        String email = 'email',
+        TextStyle? Texcolor,
+        IconData? suffix,
+        TextStyle? labelst}) =>
+    TextFormField(
+      validator: validator,
+      controller: controller,
+      obscureText: isPassword,
+      onChanged: changed,
+      onTap: onTap,
+      onFieldSubmitted: onsubmit,
+      keyboardType: type,
+      style: Texcolor,
+      decoration: InputDecoration(
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderSide: BorderSide(color: Colors.white)),
+        fillColor: background,
+        labelStyle: labelst,
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+            borderRadius: BorderRadius.all(Radius.circular(12))),
+        labelText: label,
+        prefixIcon: Icon(
+          prefix,
+          color: Colors.white,
+        ),
+        suffixIcon: suffix != null
+            ? IconButton(
+                onPressed: suffixpressed,
+                icon: Icon(
+                  suffix,
+                  color: Colors.white,
+                ),
+              )
+            : null,
+        border: OutlineInputBorder(borderSide: BorderSide()),
+      ),
+    );
+
+Widget defultformfieldf(
+        {required final FormFieldValidator<String> validator,
+        required TextEditingController controller,
+        Color background = Colors.transparent,
+        required TextInputType type,
+        void Function(String)? onsubmit,
+        token,
+        context,
+        void Function(String)? changed,
+        VoidCallback? suffixpressed,
+        VoidCallback? onTap,
+        required String label,
+        BorderSide? bord,
+        bool isPassword = false,
+        required IconData prefix,
+        TextStyle? Texcolor,
+        IconData? suffix,
+        TextStyle? labelst}) =>
+    Container(
+      child: TextFormField(
+        validator: validator,
+        controller: controller,
+        obscureText: isPassword,
+        onChanged: changed,
+        onTap: onTap,
+        onFieldSubmitted: onsubmit,
+        keyboardType: type,
+        style: Texcolor,
+        // decoration: InputDecoration(
+        //   fillColor: background,
+        //   labelStyle: labelst,
+        //   focusedBorder: OutlineInputBorder(
+        //       borderSide: BorderSide(color: Color.fromARGB(255, 255, 179, 0))),
+        //   labelText: label,
+        //   prefixIcon: Icon(
+        //     prefix,
+        //     color: Color.fromARGB(255, 240, 168, 0),
+        //   ),
+        //   suffixIcon: suffix != null
+        //       ? IconButton(
+        //           onPressed: suffixpressed,
+        //           icon: Icon(
+        //             suffix,
+        //             color: Color.fromARGB(255, 255, 174, 0),
+        //           ),
+        //         )
+        //       : null,
+        //   border: OutlineInputBorder(borderSide: BorderSide()),
+        // ),
+      ),
+    );
+
+Widget ImageFilter({brightness, child}) {
+  return ColorFiltered(
+    colorFilter: ColorFilter.matrix(ColorFilterGenerator.brightnessAdjustMatrix(
+      value: brightness,
+    )),
+    child: child,
+  );
+}
+
 Widget buildTasksItem(Map model, context) => Dismissible(
     key: Key(model['id'].toString()),
     child: Padding(
@@ -231,6 +373,8 @@ void Navigateto(context, widget) => Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => widget),
     );
+void Navigatetoandremove(context, widget) => Navigator.pushAndRemoveUntil(
+    context, MaterialPageRoute(builder: (context) => widget), (Route) => false);
 Widget Khaled(data, context) => InkWell(
       onTap: () {
         Navigateto(
@@ -282,3 +426,60 @@ Widget Khaled(data, context) => InkWell(
         ),
       ),
     );
+
+class ColorFilterGenerator {
+  static List<double> brightnessAdjustMatrix({double? value}) {
+    if (value! <= 0)
+      value = value * 255;
+    else
+      value = value * 100;
+
+    if (value == 0)
+      // ignore: curly_braces_in_flow_control_structures
+      return [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ];
+
+    return List<double>.from(<double>[
+      1,
+      0,
+      0,
+      0,
+      value,
+      0,
+      1,
+      0,
+      0,
+      value,
+      0,
+      0,
+      1,
+      0,
+      value,
+      0,
+      0,
+      0,
+      1,
+      0
+    ]).map((i) => i.toDouble()).toList();
+  }
+}
