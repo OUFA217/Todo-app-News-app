@@ -1,13 +1,12 @@
-// ignore_for_file: prefer_const_constructors, unused_import, use_key_in_widget_constructors,, deprecated_member_use, unused_local_variable, prefer_const_literals_to_create_immutables
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:bloc/bloc.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:projeectname/BlocObServer.dart';
 import 'package:projeectname/DesignSaif/Design.dart';
-import 'package:projeectname/modules/Login.dart';
+import 'package:projeectname/modules/HomeDiet/Login.dart';
 import 'package:projeectname/layout/Diet_app/cubit/cubit.dart';
 import 'package:projeectname/layout/Diet_app/cubit/states.dart';
 import 'package:projeectname/layout/News_app/News_Layout.dart';
@@ -58,7 +57,7 @@ class MyApp extends StatelessWidget {
         //     ..getScience()
         //     ..getProfile(),
         // ),
-        BlocProvider(create: (context) => Dietcubit().userlogin()
+        BlocProvider(create: (context) => Dietcubit()
             // create: (BuildContext context) =>
             //     appcubit()..changeappmode(fromshared: isdark),
             ),

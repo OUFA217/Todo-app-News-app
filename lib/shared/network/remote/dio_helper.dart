@@ -1,7 +1,5 @@
 // ignore_for_file: unused_element
 
-import 'dart:html';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -15,7 +13,7 @@ class DioHelper {
   static init() {
     dio = Dio(
       BaseOptions(
-          baseUrl: 'http://192.168.1.2:9000/',
+          baseUrl: 'http://192.168.1.6:9000/',
           receiveDataWhenStatusError: true,
           headers: {'Content-Type': 'application/json'}),
     );
@@ -23,11 +21,20 @@ class DioHelper {
 
   static Future<Response> createUser({
     required url,
+    String lang = 'en',
+    String? token,
     required Map<String, dynamic> query,
+    required Map<String, dynamic> data,
   }) async {
+    dio!.options.headers = {
+      'lang': lang,
+      'token': token,
+      'Content-Type': 'application/json',
+    };
     return await dio!.post(
       url,
       queryParameters: query,
+      data: data,
     );
   }
 

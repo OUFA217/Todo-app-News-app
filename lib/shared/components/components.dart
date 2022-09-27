@@ -1,12 +1,18 @@
-// ignore_for_file: use_function_type_syntax_for_parameters, non_constant_identifier_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_is_empty, sized_box_for_whitespace, curly_braces_in_flow_control_structures, unnecessary_new
+// ignore_for_file: use_function_type_syntax_for_parameters, non_constant_identifier_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_is_empty, sized_box_for_whitespace, curly_braces_in_flow_control_structures, unnecessary_new, unused_element, constant_identifier_names
 
 import 'dart:io';
 import 'dart:math';
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:gender_picker/source/enums.dart';
+import 'package:projeectname/layout/Diet_app/cubit/cubit.dart';
 import 'package:projeectname/modules/Web_View/Web_View.dart';
 import 'package:projeectname/shared/Cubit/cubit.dart';
+
+enum Gender { Male, Female }
+
+enum BodyType { Fat, Bulky, Skinny, Fit }
 
 Widget defultbutton({
   double width = double.maxFinite,
@@ -40,6 +46,70 @@ Widget defultbutton({
       ),
     );
 FocusNode myFocusNode = new FocusNode();
+
+Gender dropdownValue = Gender.values[0];
+Widget SelectedGender({
+  Color background = Colors.transparent,
+  void Function(String)? onsubmit,
+  void Function(dynamic)? changed,
+  VoidCallback? suffixpressed,
+  VoidCallback? onTap,
+  BorderSide? bord,
+  bool isPassword = false,
+  IconData? prefix,
+  String email = 'email',
+  TextStyle? Texcolor,
+  IconData? suffix,
+  TextStyle? labelst,
+}) =>
+    DropdownButton<Gender>(
+      value: dropdownValue,
+      onTap: onTap,
+      onChanged: changed,
+      style: TextStyle(
+          color: myFocusNode.hasFocus
+              ? Color.fromARGB(255, 4, 169, 245)
+              : Colors.blue),
+      hint: Text('Select Your Gender'),
+      items: Gender.values.map((Gender genderr) {
+        return DropdownMenuItem<Gender>(
+          child: Text(genderr.toString()),
+          value: genderr,
+        );
+      }).toList(),
+    );
+// List<String> Body = ['Skinny', 'Fat', 'Fit', 'Bulky'];
+BodyType body = BodyType.values[0];
+Widget SelectedBody({
+  Color background = Colors.transparent,
+  void Function(String)? onsubmit,
+  void Function(dynamic)? changed,
+  VoidCallback? suffixpressed,
+  VoidCallback? onTap,
+  BorderSide? bord,
+  bool isPassword = false,
+  IconData? prefix,
+  String email = 'email',
+  TextStyle? Texcolor,
+  IconData? suffix,
+  TextStyle? labelst,
+}) =>
+    DropdownButton<BodyType>(
+      value: body,
+      onTap: onTap,
+      onChanged: changed,
+      focusColor: Colors.white,
+      dropdownColor: Colors.white,
+      style: TextStyle(
+          color: myFocusNode.hasFocus
+              ? Color.fromARGB(255, 4, 169, 245)
+              : Colors.blue),
+      hint: Text('Select Your Body'),
+      items: BodyType.values.map((BodyType boody) {
+        return DropdownMenuItem<BodyType>(
+            child: Text(boody.toString()), value: boody);
+      }).toList(),
+    );
 Widget defultformfield(
         {required final FormFieldValidator<String> validator,
         required TextEditingController controller,
@@ -52,7 +122,7 @@ Widget defultformfield(
         required String label,
         BorderSide? bord,
         bool isPassword = false,
-        required IconData prefix,
+        IconData? prefix,
         String email = 'email',
         TextStyle? Texcolor,
         IconData? suffix,
